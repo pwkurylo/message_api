@@ -1,0 +1,22 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: message_back_development
+
+test:
+  <<: *default
+  database: message_back_test
+
+production:
+  <<: *default
+  database: message_back_production
+  username: message_back
+  password: <%= ENV['MESSAGE_BACK_DATABASE_PASSWORD'] %>
