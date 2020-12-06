@@ -3,10 +3,11 @@ class Api::V1::MessageController < ActionController::Base
   skip_before_action :verify_authenticity_token
 
   def show
-    result = ::MessageDecryptService.call({ id: params[:id] })
-    return render json: result[:data] if result[:status] == 200
+    #result = ::MessageDecryptService.call({ id: params[:id] })
+    render json: { error: ENV['ENCRYPT_KEY'] }, status: 404
+   # return render json: result[:data] if result[:status] == 200
 
-    render json: { error: result[:error] }, status: 404
+    #render json: { error: result[:error] }, status: 404
   end
   
   def create
