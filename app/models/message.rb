@@ -3,7 +3,7 @@ class Message < ApplicationRecord
 
   validates :message, :uniq_key, presence: true
   validates :uniq_key, uniqueness: true
-  validates_length_of :message, :maximum => 1500
+  validates_length_of :message, :maximum => 2000
 
   before_create :encrypt_message
 
