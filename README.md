@@ -15,6 +15,7 @@ $ rails db:migrate
 
 ```sh
 Cretate .env and add ENCRYPT_KEY variable it will be used to encrypt the message before storing in DB
+```
 
 ```sh
 $ rails s
@@ -22,6 +23,6 @@ $ rails s
 
 ## API
 ```sh
-POST	/api/v1/message(.:format)	    api/v1/message#create  require params => {message: 'message'}
+POST	 /api/v1/message(.:format)	    api/v1/message#create  require params => {message: 'message'}
 GET	  /api/v1/message/:id(.:format)	api/v1/message#show    require params =>  {id: 'id'}
 ```
